@@ -14,10 +14,11 @@ const Navigation = () => {
 
     const menuItems = [
         { name: 'HOME', path: '/' },
+        {name: 'ABOUT', path: '/about'},
         { name: 'CHARACTERS', path: '/characters' },
         { name: 'GALLERY', path: '/gallery' },
         { name: 'COMICS', path: '/comics' },
-        { name: 'CONTACT', path: '/footer' },
+
     ];
 
     const handleNavigation = (item) => {

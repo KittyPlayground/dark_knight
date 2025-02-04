@@ -9,6 +9,7 @@ import CharacterDetail from './components/CharacterDetail';
 import Gallery from './components/Gallery';
 import Comics from './components/Comics';
 import Footer from './components/Footer';
+import About from "./components/About.tsx";
 
 function App() {
   return (
@@ -20,11 +21,13 @@ function App() {
               <Route path="/" element={
                 <main>
                   <Hero />
+                  <About/>
                   <Characters />
                   <Gallery />
                   <Comics />
                 </main>
               } />
+              <Route path="/about" element={<About />} />
               <Route path="/characters" element={<Characters />} />
               <Route path="/character/:id" element={<CharacterDetail />} />
               <Route path="/gallery" element={<Gallery />} />

@@ -23,7 +23,6 @@ const Hero = () => {
 
     return (
         <div className="relative h-screen overflow-hidden">
-            {/* Background GIF */}
             <motion.div
                 className="absolute inset-0 w-full h-full"
                 initial={{ scale: 1.2 }}
@@ -52,7 +51,7 @@ const Hero = () => {
                     <img
                         src={batmanLogo}
                         alt="Batman Logo"
-                        className="w-4 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 animate-pulse-slow"
+                        className="w-16 h-16 sm:w-32 sm:h-20 md:w-32 md:h-20 animate-pulse-slow"
                     />
                 </motion.div>
 
@@ -65,24 +64,25 @@ const Hero = () => {
                         transition={{ duration: 1, type: 'spring' }}
                     >
                         <AnimatePresence>
-                            {inView && "I AM BATMAN".split('').map((char, i) => (
-                                <motion.span
-                                    key={i}
-                                    custom={i}
-                                    variants={textVariants}
-                                    initial="hidden"
-                                    animate="visible"
-                                    className="inline-block"
-                                    whileHover={{
-                                        scale: 1.2,
-                                        rotate: Math.random() * 10 - 5,
-                                        textShadow: '0 0 20px rgba(255,69,0,0.8)',
-                                        transition: { duration: 0.3 }
-                                    }}
-                                >
-                                    {char}
-                                </motion.span>
-                            ))}
+                            {inView &&
+                                "I AM BATMAN".split('').map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        custom={i}
+                                        variants={textVariants}
+                                        initial="hidden"
+                                        animate="visible"
+                                        className="inline-block"
+                                        whileHover={{
+                                            scale: 1.2,
+                                            rotate: Math.random() * 10 - 5,
+                                            textShadow: '0 0 20px rgba(255,69,0,0.8)',
+                                            transition: { duration: 0.3 },
+                                        }}
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
                         </AnimatePresence>
                     </motion.h1>
                 </div>
@@ -97,9 +97,9 @@ const Hero = () => {
                         textShadow: [
                             '2px 2px 0px rgba(255,0,0,0.5)',
                             '-2px -2px 0px rgba(0,255,255,0.5)',
-                            '2px 2px 0px rgba(255,0,0,0.5)'
+                            '2px 2px 0px rgba(255,0,0,0.5)',
                         ],
-                        transition: { duration: 0.1, repeat: 3 }
+                        transition: { duration: 0.1, repeat: 3 },
                     }}
                 >
                     THE DARK KNIGHT RISES
@@ -113,7 +113,7 @@ const Hero = () => {
                     transition={{ delay: 2 }}
                     whileHover={{
                         scale: 1.1,
-                        boxShadow: '0 0 40px rgba(255,69,0,0.5)'
+                        boxShadow: '0 0 40px rgba(255,69,0,0.5)',
                     }}
                 >
                     <span className="relative z-10 flex items-center gap-2">
@@ -124,44 +124,44 @@ const Hero = () => {
                             alt="batarang"
                         />
                     </span>
-                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-red-600 to-orange-500 mix-blend-screen" />
+                    <div
+                        className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-red-600 to-orange-500 mix-blend-screen"
+                    />
                 </motion.button>
 
                 {/* Floating Bats Animation */}
-                <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(15)].map((_, i) => (
-                        <motion.img
-                            key={i}
-                            src={batmanLogo}
-                            className="absolute opacity-20 w-10 sm:w-12 md:w-14"
-                            style={{
-                                top: `${Math.random() * 100}%`,
-                                left: `${Math.random() * 100}%`,
-                            }}
-                            animate={{
-                                y: [0, -100],
-                                x: [0, Math.random() * 100 - 50],
-                                opacity: [0.2, 0],
-                                scale: [1, 0.5],
-                            }}
-                            transition={{
-                                duration: 4 + Math.random() * 4,
-                                repeat: Infinity,
-                                delay: Math.random() * 5,
-                            }}
-                        />
-                    ))}
-                </div>
-
-                {/* Scrolling Indicator */}
+                {/*<div className="absolute inset-0 pointer-events-none">*/}
+                {/*    {[...Array(15)].map((_, i) => (*/}
+                {/*        <motion.img*/}
+                {/*            key={i}*/}
+                {/*            src={batmanLogo}*/}
+                {/*            className="absolute opacity-20 w-10 sm:w-12 md:w-14"*/}
+                {/*            style={{*/}
+                {/*                top: `${Math.random() * 100}%`,*/}
+                {/*                left: `${Math.random() * 100}%`,*/}
+                {/*            }}*/}
+                {/*            animate={{*/}
+                {/*                y: [0, -100],*/}
+                {/*                x: [0, Math.random() * 100 - 50],*/}
+                {/*                opacity: [0.2, 0],*/}
+                {/*                scale: [1, 0.5],*/}
+                {/*            }}*/}
+                {/*            transition={{*/}
+                {/*                duration: 4 + Math.random() * 4,*/}
+                {/*                repeat: Infinity,*/}
+                {/*                delay: Math.random() * 5,*/}
+                {/*            }}*/}
+                {/*        />*/}
+                {/*    ))}*/}
+                {/*</div>*/}
                 <motion.div
-                    className="absolute bottom-8 animate-bounce-slow"
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center animate-bounce-slow"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                 >
-                    <span className="block mb-2 text-sm">SCROLL DOWN</span>
-                    <div className="w-6 h-10 border-4 rounded-full border-red-600">
+                    <span className="block mb-4 text-sm text-white">SCROLL DOWN</span>
+                    <div className="w-6 h-10 border-4 rounded-full border-red-600 mx-auto">
                         <motion.div
                             className="w-2 h-2 mt-2 bg-red-600 rounded-full mx-auto"
                             animate={{ y: [0, 12] }}
@@ -179,7 +179,7 @@ const Hero = () => {
                         className="border border-white/5"
                         whileHover={{
                             backgroundColor: 'rgba(255,69,0,0.1)',
-                            transition: { duration: 0.3 }
+                            transition: { duration: 0.3 },
                         }}
                     />
                 ))}
