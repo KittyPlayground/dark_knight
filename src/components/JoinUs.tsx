@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Users, Zap } from 'lucide-react';
+import batmanLogo from "../../assets/logo.png";
 
 const features = [
     {
@@ -25,15 +26,16 @@ const JoinUs = () => {
         <section className="bg-black text-white py-24">
             <div className="max-w-7xl mx-auto px-4">
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    initial={{opacity: 0}}
+                    whileInView={{opacity: 1}}
                     className="text-center mb-16"
                 >
                     <h2 className="text-5xl font-mono font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-800">
                         Join the Dark Knight's Legion
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto font-mono">
-                        Become part of an exclusive community of Batman comic enthusiasts. Get access to premium content, special events, and connect with fellow fans.
+                        Become part of an exclusive community of Batman comic enthusiasts. Get access to premium
+                        content, special events, and connect with fellow fans.
                     </p>
                 </motion.div>
 
@@ -41,12 +43,13 @@ const JoinUs = () => {
                     {features.map((feature, index) => (
                         <motion.div
                             key={feature.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.2 }}
+                            initial={{opacity: 0, y: 20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            transition={{delay: index * 0.2}}
                             className="relative group"
                         >
-                            <div className="absolute -inset-1  bg-gradient-to-r from-red-950 to-red-800 rounded-2xl blur opacity-55 group-hover:opacity-45 transition duration-500"></div>
+                            <div
+                                className="absolute -inset-1  bg-gradient-to-r from-red-950 to-red-800 rounded-2xl blur opacity-55 group-hover:opacity-45 transition duration-500"></div>
                             <div className="relative bg-white-900 p-8 rounded-lg">
                                 <div className="text-red-500 mb-4">{feature.icon}</div>
                                 <h3 className="text-xl font-mono font-bold mb-3 text-red-400">{feature.title}</h3>
@@ -57,8 +60,8 @@ const JoinUs = () => {
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
                     className="max-w-md mx-auto"
                 >
                     {/*<div className="relative">*/}
