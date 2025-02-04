@@ -15,9 +15,12 @@ const Navigation = () => {
     const menuItems = [
         { name: 'HOME', path: '/' },
         {name: 'ABOUT', path: '/about'},
+        { name: 'COMICS', path: '/comics' },
         { name: 'CHARACTERS', path: '/characters' },
         { name: 'GALLERY', path: '/gallery' },
+        {name: 'NEWS', path: '/news'},
         { name: 'JOIN US', path: '/join-us' },
+
 
     ];
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Youtube, Github } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 import batlogo from "../../assets/logo.png";
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
     { icon: Twitter, href: '#', label: 'Twitter' },
     { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Github, href: '#', label: 'GitHub' },
+
   ];
 
   const quickLinks = [
@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-      <footer className="bg-gradient-to-b from-black-900 to-black text-white">
+      <footer className="bg-gradient-to-b from-black-900 to-black text-white font-mono">
         <div className="max-w-7xl mx-auto px-4">
           {/* Batman Logo Section */}
           <div className="py-12 flex justify-center">
@@ -30,7 +30,7 @@ const Footer = () => {
                 transition={{duration: 0.8}}
                 className="relative"
             >
-              <img src={batlogo} alt="Batman Logo" className="w-15 h-10"/>
+              <img src={batlogo} alt="Batman Logo" className="w-20 h-auto"/>
             </motion.div>
           </div>
 
@@ -38,15 +38,15 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-t border-red-900/20">
             {/* About Section */}
             <div>
-              <h3 className="font-cinzel text-xl font-bold text-red-700 mb-4">About</h3>
+              <h3 className="text-xl font-bold text-red-700 mb-4">About</h3>
               <p className="text-gray-400 mb-4">
-                Protecting Gotham City from the shadows, Batman strikes fear into the hearts of criminals while bringing hope to the innocent.
+                Protecting Gotham City from the shadows, Batman strikes fear into criminals while bringing hope to the innocent.
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="font-cinzel text-xl font-bold text-red-700 mb-4">Quick Links</h3>
+              <h3 className="text-xl font-bold text-red-700 mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                     <li key={link.name}>
@@ -64,7 +64,7 @@ const Footer = () => {
 
             {/* Latest News */}
             <div>
-              <h3 className="font-cinzel text-xl font-bold text-red-700 mb-4">Latest News</h3>
+              <h3 className="text-xl font-bold text-red-700 mb-4">Latest News</h3>
               <div className="space-y-4">
                 <div>
                   <p className="text-gray-300 font-semibold">Arkham Asylum Breakout</p>
@@ -79,7 +79,7 @@ const Footer = () => {
 
             {/* Social Links */}
             <div>
-              <h3 className="font-cinzel text-xl font-bold text-red-700 mb-4">Follow the Bat</h3>
+              <h3 className="text-xl font-bold text-red-700 mb-4">Follow the Bat</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                     <motion.a
@@ -96,7 +96,7 @@ const Footer = () => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="py-6 border-t border-blue-900/20 text-center">
+          <div className="py-6 border-t border-red-900/20 text-center">
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Batman. All rights reserved. | Gotham City's Dark Knight
             </p>
