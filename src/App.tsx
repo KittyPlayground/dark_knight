@@ -10,6 +10,7 @@ import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import About from "./components/About.tsx";
 import JoinUs from "./components/JoinUs.tsx";
+import News from "./components/News.tsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                   <About/>
                   <Characters />
                   <Gallery />
+                  <News />
                   <JoinUs />
 
                 </main>

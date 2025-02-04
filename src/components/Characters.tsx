@@ -7,7 +7,7 @@ const Characters = () => {
     const navigate = useNavigate();
 
     return (
-        <section className="bg-black text-white py-20">
+        <section className="bg-gradient-to-b from-black-900 to-black text-white py-20">
             <div className="max-w-7xl mx-auto px-4">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

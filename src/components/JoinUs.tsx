@@ -32,7 +32,7 @@ const JoinUs = () => {
                     <h2 className="text-5xl font-mono font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-800">
                         Join the Dark Knight's Legion
                     </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto font-mono">
                         Become part of an exclusive community of Batman comic enthusiasts. Get access to premium content, special events, and connect with fellow fans.
                     </p>
                 </motion.div>
@@ -46,7 +46,7 @@ const JoinUs = () => {
                             transition={{ delay: index * 0.2 }}
                             className="relative group"
                         >
-                            <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div className="absolute -inset-1  bg-gradient-to-r from-red-950 to-red-800 rounded-2xl blur opacity-55 group-hover:opacity-45 transition duration-500"></div>
                             <div className="relative bg-white-900 p-8 rounded-lg">
                                 <div className="text-red-500 mb-4">{feature.icon}</div>
                                 <h3 className="text-xl font-mono font-bold mb-3 text-red-400">{feature.title}</h3>
