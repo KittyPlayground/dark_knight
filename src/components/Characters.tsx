@@ -1,107 +1,95 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import {characters} from "../data/Characters.ts";
 
-const characters = [
-  {
-    name: 'Batman',
-    alias: 'Bruce Wayne',
-    description: 'Billionaire by day, vigilante by night. Gotham\'s protector.',
-    image: 'https://images.unsplash.com/photo-1531259683007-016a7b628fc3?ixlib=rb-4.0.3',
-    stats: {
-      strength: 90,
-      intelligence: 95,
-      speed: 85,
-      combat: 95,
-    },
-  },
-  {
-    name: 'Catwoman',
-    alias: 'Selina Kyle',
-    description: 'Master thief with a complex relationship with the Dark Knight.',
-    image: 'https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-4.0.3',
-    stats: {
-      strength: 75,
-      intelligence: 85,
-      speed: 90,
-      combat: 85,
-    },
-  },
-  {
-    name: 'The Joker',
-    alias: 'Unknown',
-    description: 'The Clown Prince of Crime and Batman\'s greatest nemesis.',
-    image: 'https://images.unsplash.com/photo-1507457379470-08b800bebc67?ixlib=rb-4.0.3',
-    stats: {
-      strength: 70,
-      intelligence: 90,
-      speed: 75,
-      combat: 80,
-    },
-  },
-];
 
 const Characters = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="bg-black text-white py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="font-cinzel text-5xl font-bold text-center mb-12 text-red-600"
-        >
-          Characters
-        </motion.h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {characters.map((character, index) => (
-            <motion.div
-              key={character.name}
+      <section className="bg-black text-white py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="relative group bg-gradient-to-br from-gray-900 to-red-900/30 rounded-lg overflow-hidden"
-            >
-              <div className="aspect-w-3 aspect-h-4">
-                <img
-                  src={character.image}
-                  alt={character.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-                
-                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="font-cinzel text-2xl font-bold text-red-500 mb-1">{character.name}</h3>
-                  <p className="font-inter text-gray-300 mb-2">{character.alias}</p>
-                  <p className="font-inter text-gray-400 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {character.description}
-                  </p>
-                  
-                  {/* Character Stats */}
-                  <div className="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {Object.entries(character.stats).map(([stat, value]) => (
-                      <div key={stat} className="flex items-center gap-2">
-                        <span className="text-gray-400 capitalize text-sm w-24">{stat}</span>
-                        <div className="flex-1 h-1 bg-gray-800 rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${value}%` }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                            className="h-full bg-red-600 rounded-full"
-                          />
+              className="font-cinzel text-5xl font-bold text-center mb-12 text-red-600"
+          >
+            Characters
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {characters.map((character, index) => (
+                <motion.div
+                    key={character.id}
+                    initial={{ opacity: 0, rotateY: -180 }}
+                    whileInView={{ opacity: 1, rotateY: 0 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: index * 0.2,
+                      type: "spring",
+                      stiffness: 100
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    className="group perspective cursor-pointer"
+                    onClick={() => navigate(`/character/${character.id}`)}
+                >
+                  <motion.div
+                      className="relative w-full h-[500px] [transform-style:preserve-3d] transition-all duration-700 group-hover:[transform:rotateY(180deg)]"
+                  >
+                    {/* Front of the card */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-red-900/30 to-black rounded-lg overflow-hidden">
+                      <div className="relative h-full">
+                        <img
+                            src={character.image}
+                            alt={character.name}
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+                        <div className="absolute bottom-0 left-0 right-0 p-6">
+                          <h3 className="font-cinzel text-3xl font-bold text-red-500 mb-2">{character.name}</h3>
+                          <p className="font-inter text-xl text-gray-300 mb-2">{character.alias}</p>
+                          <p className="font-inter text-gray-400 italic">"{character.quote}"</p>
                         </div>
-                        <span className="text-gray-400 text-sm w-8">{value}</span>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                    </div>
+
+                    {/* Back of the card */}
+                    <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] bg-gradient-to-br from-red-900/50 via-gray-900 to-black rounded-lg p-6">
+                      <div className="h-full flex flex-col justify-between">
+                        <div>
+                          <h3 className="font-cinzel text-2xl font-bold text-red-500 mb-4">{character.name}</h3>
+                          <p className="font-inter text-gray-300 mb-6">{character.description}</p>
+                        </div>
+
+                        <div className="space-y-4">
+                          {Object.entries(character.stats).map(([stat, value]) => (
+                              <div key={stat} className="space-y-2">
+                                <div className="flex justify-between items-center">
+                                  <span className="text-gray-300 capitalize font-semibold">{stat}</span>
+                                  <span className="text-red-500 font-bold">{value}</span>
+                                </div>
+                                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                  <motion.div
+                                      initial={{ width: 0 }}
+                                      whileInView={{ width: `${value}%` }}
+                                      transition={{ duration: 1, delay: 0.5 }}
+                                      className="h-full bg-gradient-to-r from-red-700 to-red-500 rounded-full"
+                                  />
+                                </div>
+                              </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 
-export default Characters
+export default Characters;

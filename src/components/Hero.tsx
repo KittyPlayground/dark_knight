@@ -52,7 +52,7 @@ const Hero = () => {
                     <img
                         src={batmanLogo}
                         alt="Batman Logo"
-                        className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 animate-pulse-slow"
+                        className="w-4 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 animate-pulse-slow"
                     />
                 </motion.div>
 
@@ -120,7 +120,7 @@ const Hero = () => {
                         <span className="text-shadow">ENTER THE BATCAVE</span>
                         <img
                             src={batmanLogo}
-                            className="w-5 h-5 sm:w-6 sm:h-6 animate-throw"
+                            className="w-10 h-5 sm:w-6 sm:h-6 animate-throw"
                             alt="batarang"
                         />
                     </span>
