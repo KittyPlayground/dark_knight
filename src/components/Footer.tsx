@@ -52,7 +52,7 @@ const Footer = () => {
                     <li key={link.name}>
                       <motion.a
                           href={link.href}
-                          whileHover={{ x: 5, color: '#3B82F6' }}
+                          whileHover={{ x: 5, color: '#800c0c' }}
                           className="text-gray-400 hover:text-red-700 transition-colors duration-300"
                       >
                         {link.name}
