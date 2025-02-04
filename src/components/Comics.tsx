@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, BookOpen } from 'lucide-react';
 import { RootState } from '../store/store';
 import { setCurrentComicId, setCurrentComicPage } from '../store/batmanSlice';
 
@@ -63,98 +63,112 @@ const Comics = () => {
   };
 
   return (
-    <section className="bg-black text-white py-20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="font-cinzel text-5xl font-bold text-center mb-12 text-red-600"
-        >
-          Batman Comics
-        </motion.h2>
+      <section className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-20 min-h-screen">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="font-mono text-6xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-800"
+          >
+            Batman Comics
+          </motion.h2>
 
-        {!currentComicId ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {comics.map((comic) => (
-              <motion.div
-                key={comic.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.02 }}
-                className="bg-gradient-to-br from-gray-900 to-red-900 rounded-lg overflow-hidden cursor-pointer group"
-                onClick={() => dispatch(setCurrentComicId(comic.id))}
-              >
-                <div className="aspect-w-16 aspect-h-9 relative">
-                  <img
-                    src={comic.cover}
-                    alt={comic.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-cinzel text-2xl font-bold text-red-500 mb-2">{comic.title}</h3>
-                    <p className="text-gray-300">{comic.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${currentComicId}-${currentComicPage}`}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              className="relative max-w-4xl mx-auto"
-            >
-              <button
-                onClick={() => dispatch(setCurrentComicId(null))}
-                className="absolute -top-12 right-0 text-red-500 hover:text-red-400 transition-colors"
-              >
-                <X size={24} />
-              </button>
-
-              <div className="bg-gradient-to-br from-gray-900 to-red-900 rounded-lg overflow-hidden shadow-2xl">
-                <div className="aspect-w-16 aspect-h-9 relative">
-                  <img
-                    src={currentComic?.pages[currentComicPage].image}
-                    alt={`Page ${currentComicPage + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <p className="text-xl text-gray-200 font-inter">
-                      {currentComic?.pages[currentComicPage].text}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 flex justify-between items-center">
+          {!currentComicId ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4">
+                {comics.map((comic) => (
+                    <motion.div
+                        key={comic.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -10 }}
+                        className="relative group"
+                        onClick={() => dispatch(setCurrentComicId(comic.id))}
+                    >
+                      <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-2xl blur-lg opacity-25 group-hover:opacity-100 transition duration-500"></div>
+                      <div className="relative bg-black rounded-xl overflow-hidden">
+                        <div className="aspect-[4/5] relative overflow-hidden">
+                          <img
+                              src={comic.cover}
+                              alt={comic.title}
+                              className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-8">
+                          <h3 className="font-mono text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">
+                            {comic.title}
+                          </h3>
+                          <p className="text-gray-300 text-lg mb-6 line-clamp-2">
+                            {comic.description}
+                          </p>
+                          <div className="flex items-center space-x-2 text-red-500 group-hover:text-red-400 transition-colors">
+                            <BookOpen size={20} />
+                            <span className="font-mono">Read Now</span>
+                          </div>
+                        </div>
+                        <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-mono">
+                          {comic.pages.length} Pages
+                        </div>
+                      </div>
+                    </motion.div>
+                ))}
+              </div>
+          ) : (
+              <AnimatePresence mode="wait">
+                <motion.div
+                    key={`${currentComicId}-${currentComicPage}`}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    className="relative max-w-4xl mx-auto"
+                >
                   <button
-                    onClick={handlePrevPage}
-                    disabled={currentComicPage === 0}
-                    className="p-2 text-red-500 hover:text-red-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      onClick={() => dispatch(setCurrentComicId(null))}
+                      className="absolute -top-12 right-0 text-red-500 hover:text-red-400 transition-colors"
                   >
-                    <ChevronLeft size={24} />
+                    <X size={24} />
                   </button>
-                  <span className="text-gray-400">
+
+                  <div className="bg-gradient-to-br from-gray-900 to-red-900 rounded-lg overflow-hidden shadow-2xl">
+                    <div className="aspect-w-16 aspect-h-9 relative">
+                      <img
+                          src={currentComic?.pages[currentComicPage].image}
+                          alt={`Page ${currentComicPage + 1}`}
+                          className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-8">
+                        <p className="text-xl text-gray-200 font-mono">
+                          {currentComic?.pages[currentComicPage].text}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="p-4 flex justify-between items-center">
+                      <button
+                          onClick={handlePrevPage}
+                          disabled={currentComicPage === 0}
+                          className="p-2 text-red-500 hover:text-red-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+                      <span className="text-gray-400 font-mono">
                     Page {currentComicPage + 1} of {currentComic?.pages.length}
                   </span>
-                  <button
-                    onClick={handleNextPage}
-                    disabled={currentComic && currentComicPage === currentComic.pages.length - 1}
-                    className="p-2 text-red-500 hover:text-red-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <ChevronRight size={24} />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
-      </div>
-    </section>
+                      <button
+                          onClick={handleNextPage}
+                          disabled={currentComic && currentComicPage === currentComic.pages.length - 1}
+                          className="p-2 text-red-500 hover:text-red-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+          )}
+        </div>
+      </section>
   );
 };
 

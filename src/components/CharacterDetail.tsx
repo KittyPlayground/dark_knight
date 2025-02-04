@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Shield, Swords, Brain, Zap, Target, Heart, Star } from 'lucide-react';
-import { characters } from '../data/characters';
+import { Shield, Swords, Brain, Zap, Target, Heart, Star } from 'lucide-react';
+import {characters} from "../data/Characters.ts";
+
 
 const CharacterDetail = () => {
     const { id } = useParams();
@@ -57,8 +58,7 @@ const CharacterDetail = () => {
                         onClick={() => navigate('/')}
                         className="flex items-center gap-2 text-white hover:text-red-500 transition-colors"
                     >
-                        <ArrowLeft size={20} />
-                        Back
+
                     </motion.button>
                 </div>
 
@@ -69,9 +69,15 @@ const CharacterDetail = () => {
                         transition={{ delay: 0.2 }}
                         className="text-center"
                     >
-                        <h1 className="font-cinzel text-6xl font-bold text-red-600 mb-4">{character.name}</h1>
-                        <p className="text-2xl text-gray-300 mb-4">{character.alias}</p>
-                        <p className="text-xl text-gray-400 italic max-w-2xl mx-auto">"{character.quote}"</p>
+                        <h1 className="font-mono text-6xl font-bold text-red-600 mb-4 hover:text-shadow-md">
+                            {character.name}
+                        </h1>
+                        <p className="font-mono text-2xl text-gray-300 mb-4 hover:text-shadow-md">
+                            {character.alias}
+                        </p>
+                        <p className="font-mono text-xl text-gray-400 italic max-w-2xl mx-auto hover:text-shadow-md">
+                            "{character.quote}"
+                        </p>
                     </motion.div>
                 </div>
             </motion.div>
@@ -85,7 +91,7 @@ const CharacterDetail = () => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <h2 className="font-cinzel text-3xl font-bold text-red-600 mb-6">Background</h2>
+                        <h2 className="font-mono text-3xl font-bold text-red-600 mb-6 hover:text-shadow-md">Background</h2>
                         <div className="space-y-6 text-gray-300">
                             {character.background.map((paragraph, index) => (
                                 <p key={index}>{paragraph}</p>
@@ -93,7 +99,7 @@ const CharacterDetail = () => {
                         </div>
 
                         <div className="mt-12">
-                            <h2 className="font-cinzel text-3xl font-bold text-red-600 mb-6">Abilities</h2>
+                            <h2 className="font-mono text-3xl font-bold text-red-600 mb-6 hover:text-shadow-md">Abilities</h2>
                             <ul className="space-y-4">
                                 {character.abilities.map((ability, index) => (
                                     <motion.li
@@ -101,7 +107,7 @@ const CharacterDetail = () => {
                                         initial={{ x: -20, opacity: 0 }}
                                         animate={{ x: 0, opacity: 1 }}
                                         transition={{ delay: 0.6 + index * 0.1 }}
-                                        className="flex items-center gap-4 text-gray-300"
+                                        className="font-mono flex items-center gap-4 text-gray-300 hover:text-shadow-md"
                                     >
                                         <span className="w-2 h-2 bg-red-600 rounded-full" />
                                         {ability}
@@ -117,7 +123,7 @@ const CharacterDetail = () => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <h2 className="font-cinzel text-3xl font-bold text-red-600 mb-6">Stats</h2>
+                        <h2 className="font-mono text-3xl font-bold text-red-600 mb-6 hover:text-shadow-md">Stats</h2>
                         <div className="grid gap-6">
                             {Object.entries(character.stats).map(([stat, value]) => {
                                 const Icon = statIcons[stat as keyof typeof statIcons];
@@ -151,7 +157,7 @@ const CharacterDetail = () => {
 
                         {character.equipment && (
                             <div className="mt-12">
-                                <h2 className="font-cinzel text-3xl font-bold text-red-600 mb-6">Equipment</h2>
+                                <h2 className="font-mono text-3xl font-bold text-red-600 mb-6 hover:text-shadow-md">Equipment</h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {character.equipment.map((item, index) => (
                                         <motion.div
@@ -161,8 +167,8 @@ const CharacterDetail = () => {
                                             transition={{ delay: 0.8 + index * 0.1 }}
                                             className="bg-gradient-to-br from-red-900/20 to-gray-900/20 p-4 rounded-lg"
                                         >
-                                            <h3 className="text-red-500 font-bold mb-2">{item.name}</h3>
-                                            <p className="text-gray-400 text-sm">{item.description}</p>
+                                            <h3 className="font-mono text-red-500 font-bold mb-2 hover:text-shadow-md">{item.name}</h3>
+                                            <p className="font-mono text-gray-400 text-sm">{item.description}</p>
                                         </motion.div>
                                     ))}
                                 </div>

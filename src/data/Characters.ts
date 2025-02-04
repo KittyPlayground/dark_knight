@@ -4,8 +4,8 @@ export const characters = [
         name: 'Batman',
         alias: 'Bruce Wayne',
         description: 'Billionaire by day, vigilante by night. Gotham\'s protector.',
-        image: 'https://images.unsplash.com/photo-1531259683007-016a7b628fc3?ixlib=rb-4.0.3',
-        backgroundImage: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?ixlib=rb-4.0.3',
+        image: 'https://images4.alphacoders.com/132/thumb-1920-1329876.png',
+        backgroundImage: 'https://images4.alphacoders.com/132/thumb-1920-1329876.png',
         stats: {
             strength: 90,
             intelligence: 95,
@@ -53,8 +53,8 @@ export const characters = [
         name: 'Catwoman',
         alias: 'Selina Kyle',
         description: 'Master thief with a complex relationship with the Dark Knight.',
-        image: 'https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-4.0.3',
-        backgroundImage: 'https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-4.0.3',
+        image: 'https://images5.alphacoders.com/101/thumb-1920-1014997.jpg',
+        backgroundImage: 'https://images5.alphacoders.com/101/thumb-1920-1014997.jpg',
         stats: {
             strength: 75,
             intelligence: 85,
@@ -98,8 +98,8 @@ export const characters = [
         name: 'The Joker',
         alias: 'Unknown',
         description: 'The Clown Prince of Crime and Batman\'s greatest nemesis.',
-        image: 'https://images.unsplash.com/photo-1507457379470-08b800bebc67?ixlib=rb-4.0.3',
-        backgroundImage: 'https://images.unsplash.com/photo-1507457379470-08b800bebc67?ixlib=rb-4.0.3',
+        image: 'https://images2.alphacoders.com/138/thumb-1920-1385414.jpg',
+        backgroundImage: 'https://images2.alphacoders.com/138/thumb-1920-1385414.jpg',
         stats: {
             strength: 70,
             intelligence: 90,

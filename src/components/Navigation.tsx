@@ -17,7 +17,7 @@ const Navigation = () => {
         {name: 'ABOUT', path: '/about'},
         { name: 'CHARACTERS', path: '/characters' },
         { name: 'GALLERY', path: '/gallery' },
-        { name: 'COMICS', path: '/comics' },
+        { name: 'JOIN US', path: '/join-us' },
 
     ];
 

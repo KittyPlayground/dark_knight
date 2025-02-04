@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         cinzel: ['Cinzel', 'serif'],
-        inter: ['Inter', 'sans-serif'],
+
       },
       colors: {
         'bat-black': '#0A0A0A',

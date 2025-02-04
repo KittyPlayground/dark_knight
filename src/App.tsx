@@ -7,9 +7,9 @@ import Hero from './components/Hero';
 import Characters from './components/Characters';
 import CharacterDetail from './components/CharacterDetail';
 import Gallery from './components/Gallery';
-import Comics from './components/Comics';
 import Footer from './components/Footer';
 import About from "./components/About.tsx";
+import JoinUs from "./components/JoinUs.tsx";
 
 function App() {
   return (
@@ -24,14 +24,16 @@ function App() {
                   <About/>
                   <Characters />
                   <Gallery />
-                  <Comics />
+                  <JoinUs />
+
                 </main>
               } />
               <Route path="/about" element={<About />} />
               <Route path="/characters" element={<Characters />} />
               <Route path="/character/:id" element={<CharacterDetail />} />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/comics" element={<Comics />} />
+              <Route path="/join-us" element={<JoinUs />} />
+
             </Routes>
             <Footer />
           </div>

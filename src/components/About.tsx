@@ -32,7 +32,7 @@ const GothamAbout: React.FC = () => {
                     transition={{ delay: 1, duration: 1 }}
                 >
                     <motion.h1
-                        className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-red-600 mb-6"
+                        className="text-5xl sm:text-6xl md:text-7xl font-mono font-semibold text-red-600 mb-6"
                         initial={{ y: 100 }}
                         animate={{ y: 0 }}
                         transition={{ duration: 1, type: 'spring' }}
